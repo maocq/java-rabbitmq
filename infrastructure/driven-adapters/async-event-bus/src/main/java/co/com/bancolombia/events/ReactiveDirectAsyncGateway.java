@@ -17,7 +17,7 @@ import java.util.logging.Level;
 @AllArgsConstructor
 @EnableDirectAsyncGateway
 public class ReactiveDirectAsyncGateway implements DirectGateway {
-    public static final String TARGET_NAME = "nameProjectOne";
+    public static final String TARGET_NAME = "JavaRabbitMq";  // spring.application.name de la app que recibe el mensaje
     public static final String COMMAND_NAME = "some.command.name";
     public static final String SOME_QUERY_NAME = "some.query.name";
 
