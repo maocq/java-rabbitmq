@@ -13,7 +13,7 @@ public class HandlerRegistryConfiguration {
     @Bean
     public HandlerRegistry handlerRegistry(CommandsHandler commands, EventsHandler events, QueriesHandler queries) {
         return HandlerRegistry.register()
-                //.listenNotificationEvent("some.broadcast.event.name", events::handleEventA, Info.class)
+                .listenNotificationEvent("some.broadcast.event.name", events::handleNotificationA, Info.class)
                 .listenEvent("some.event.name", events::handleEventA, Info.class)
                 .handleCommand("some.command.name", commands::handleCommandA, Info.class)
                 .serveQuery("some.query.name", queries::handleQueryA, Info.class);

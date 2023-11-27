@@ -16,4 +16,9 @@ public class EventsHandler {
         // return sampleUseCase.doSomething(event.getData());
         return Mono.empty();
     }
+
+    public Mono<Void> handleNotificationA(DomainEvent<Info> event) {
+        System.out.println("notification received: " + event.getName() + " ->" + event.getData());
+        return Mono.empty();
+    }
 }

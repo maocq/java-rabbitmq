@@ -23,6 +23,13 @@ public class Handler {
                 .flatMap(ServerResponse.ok()::bodyValue);
     }
 
+    public Mono<ServerResponse> listenEmitNotification(ServerRequest serverRequest) {
+        return eventsGateway.notify(Info.builder().name("Bar").build())
+                .then(Mono.just("OK"))
+                .flatMap(ServerResponse.ok()::bodyValue);
+    }
+
+
     public Mono<ServerResponse> listenSendCommand(ServerRequest serverRequest) {
         return directGateway.sendCommand(Info.builder().name("Foo").build())
                 .then(Mono.just("OK"))

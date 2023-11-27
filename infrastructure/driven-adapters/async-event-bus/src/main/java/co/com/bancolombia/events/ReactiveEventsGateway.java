@@ -18,6 +18,7 @@ import static reactor.core.publisher.Mono.from;
 @EnableDomainEventBus
 public class ReactiveEventsGateway implements EventsGateway {
     public static final String SOME_EVENT_NAME = "some.event.name";
+    public static final String SOME_NOTIFICATION_NAME = "some.broadcast.event.name";
 
     private final DomainEventBus domainEventBus;
 
@@ -25,5 +26,11 @@ public class ReactiveEventsGateway implements EventsGateway {
     public Mono<Void> emit(Object event) {
         log.log(Level.INFO, "Sending domain event: {0}: {1}", new String[]{SOME_EVENT_NAME, event.toString()});
         return from(domainEventBus.emit(new DomainEvent<>(SOME_EVENT_NAME, UUID.randomUUID().toString(), event)));
+    }
+
+    @Override
+    public Mono<Void> notify(Object event) {
+        log.log(Level.INFO, "Sending notification event: {0}: {1}", new String[]{SOME_NOTIFICATION_NAME, event.toString()});
+        return from(domainEventBus.emit(new DomainEvent<>(SOME_NOTIFICATION_NAME, UUID.randomUUID().toString(), event)));
     }
 }
