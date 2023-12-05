@@ -38,4 +38,18 @@ public class CustomNotificacionListenersConfig {
         listener.startListener();
         return listener;
     }
+
+    /*
+    @Bean
+    @Primary
+    public ConnectionFactoryProvider connectionFactoryProvider() {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setUsername("guest");
+        factory.setPassword("guest");
+        //factory.setVirtualHost("localhost");
+        factory.setHost("localhost");
+        factory.setPort(5672);
+        return () -> factory;
+    }
+     */
 }
