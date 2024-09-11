@@ -1,5 +1,6 @@
 package co.com.bancolombia.events.config;
 
+import com.rabbitmq.client.ConnectionFactory;
 import lombok.RequiredArgsConstructor;
 import org.reactivecommons.async.commons.DiscardNotifier;
 import org.reactivecommons.async.commons.converters.MessageConverter;
@@ -49,6 +50,8 @@ public class CustomNotificacionListenersConfig {
         //factory.setVirtualHost("localhost");
         factory.setHost("localhost");
         factory.setPort(5672);
+
+        factory.useSslProtocol(SSLContext.getDefault());
         return () -> factory;
     }
      */
