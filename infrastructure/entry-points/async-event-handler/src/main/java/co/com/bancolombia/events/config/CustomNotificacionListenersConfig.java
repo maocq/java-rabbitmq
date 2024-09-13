@@ -50,6 +50,7 @@ public class CustomNotificacionListenersConfig {
         factory.setHost("localhost");
         factory.setPort(5672);
 
+        factory.useSslProtocol();
         factory.useSslProtocol(SSLContext.getDefault());
         return () -> factory;
     }
